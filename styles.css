@@ -14,6 +14,9 @@
   body.background {
     background-color: #C96567;
   }
+  Body {
+    background-color: #C96567;
+  }
 
   h1.background { /*changes the header color inside of the picture*/
     color: #314455;
@@ -83,4 +86,11 @@
 
   a {
     font-size: 15px;
+  }
+
+  #world-info {
+    padding: 10px;
+  }
+  .buffer {
+    height: 100px;
   }

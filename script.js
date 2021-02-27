@@ -1,18 +1,44 @@
+const url = "https://covid-api.mmediagroup.fr/v1/cases?country=Global";
+fetch(url)
+  .then(function(response) {
+    return response.json();
+  }).then(function(json) {
+    console.log(json);
+    let results = "";
+    results += '<br> <h2>Coronavirus Worldwide' + "</h2>";
+
+    results+= '<p> Total cases: ' + json.All.confirmed + '</p>';
+    results+= '<p> Total recovered: ' + json.All.recovered + '</p>';
+    results+= '<p> Total deaths: ' + json.All.deaths + '</p>';
+    results+= '<p> Up to date as of: ' + moment(json.All.updated).format('MMMM Do YYYY hh a') + '</p>';
+
+    console.log(results);
+    document.getElementById("world-info").innerHTML = results;
+  });
+
+
 document.getElementById("covidSubmit").addEventListener("click", function(event) {
   event.preventDefault();
   const value = document.getElementById("covidInput").value;
   if (value === "")
     return;
   //currentWeather
-  const url = "http://api.openweathermap.org/data/2.5/weather?q=" + value + ",US&units=imperial" + "&APPID=f41f869874964dcafa2270c3bde99587";
+  const url = "https://covid-api.mmediagroup.fr/v1/cases?country=" + value;
   fetch(url)
     .then(function(response) {
       return response.json();
     }).then(function(json) {
       console.log(json);
       let results = "";
-      results += '<br> <h2>Weather in ' + json.name + "</h2>";
-      for (let i = 0; i < json.weather.length; i++) {
+      results += '<br> <h2>Covid in ' + json.All.country + "</h2>";
+      results += '<p> Confirmed Cases: ' + json.All.confirmed + '</p>';
+      results += '<p> Total Recovered: ' + json.All.recovered + '</p>';
+      results += '<p> Confirmed Deaths: ' + json.All.deaths + '</p>';
+
+      let perCapita = (json.All.confirmed / json.All.population) * 100000;
+
+      results += '<p> Cases per 100,000 people: ' + perCapita + '</p>';
+      /*for (let i = 0; i < json..length; i++) {
         results += '<img src="http://openweathermap.org/img/w/' + json.weather[i].icon + '.png"/>';
       }
       results += '<span>' + json.main.temp + " &deg;F</span>"
@@ -22,34 +48,14 @@ document.getElementById("covidSubmit").addEventListener("click", function(event)
         results += json.weather[i].description
         if (i !== json.weather.length - 1)
           results += ", "
-      }
-      results += "</span>";
-
-      results += "<span>"; //wind speed
-      results += "Wind Speed: "
-      results += json.wind.speed;
-      results += " mph"
-      results += "</span>";
-
-      results += "<span>"; //gust speed
-      results += "Gust Speed: "
-      results += json.wind.gust;
-      results += " mph"
-      results += "</span>";
-
-      results += "<span>"; //gust speed
-      results += "Coordinates: "
-      results += "Lon: "
-      results += json.coord.lon;
-      results += ", Lat: "
-      results += json.coord.lat;
+      }*/
       results += "</span>";
 
       console.log(results);
       document.getElementById("weatherResults").innerHTML = results;
     });
   //weatherForecast
-  const url2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + value + ", US&units=imperial" + "&APPID=f41f869874964dcafa2270c3bde99587";
+  /*const url2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + value + ", US&units=imperial" + "&APPID=f41f869874964dcafa2270c3bde99587";
   fetch(url2)
     .then(function(response) {
       return response.json();
@@ -71,6 +77,5 @@ document.getElementById("covidSubmit").addEventListener("click", function(event)
       forecast += "<br>"
       forecast+= "<hr>"
       document.getElementById("forecastResults").innerHTML = forecast;
-    });
-
+    });*/
 });
