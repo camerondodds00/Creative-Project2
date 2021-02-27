@@ -1,0 +1,86 @@
+  /*bootstrap menu */
+  nav.bg-light {
+    background-color: #314455 !important;
+  }
+
+  .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: #55BDCA !important;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: #97AABD !important;
+  }
+
+  body.background {
+    background-color: #C96567;
+  }
+
+  h1.background { /*changes the header color inside of the picture*/
+    color: #314455;
+  }
+
+  .footer {
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    background-color: #314455;
+    color: white;
+    text-align: center;
+    position: fixed;
+  }
+
+  a.footer { /*footer text color*/
+    color: #97AABD;
+  }
+
+  a, a:hover, a:active, a:visited {
+    color: #97AABD;
+  }
+
+  .myMargin {
+    margin-left: 30px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .full {
+    width: 100%;
+  }
+
+  .picture { /*Used to create the picture at the top. It also changes the text color */
+    color: black;
+    grid-area: picture;
+    min-height: 400px;
+    background: white url(covid-map.jpg);
+    background-size: cover;
+    background-position: bottom right;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+
+
+
+  body {
+    font-family: monospace;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  span {
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  a {
+    font-size: 15px;
+  }
