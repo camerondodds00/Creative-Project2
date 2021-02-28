@@ -16,6 +16,7 @@
   }
   Body {
     background-color: #C96567;
+  
   }
 
   h1.background { /*changes the header color inside of the picture*/
@@ -86,7 +87,8 @@
 
 
   body {
-    font-family: monospace;
+    font-family: Georgia, serif;
+    font size: 20px;
   }
 
   p {
@@ -112,4 +114,7 @@
   }
   .buffer {
     height: 100px;
+  }
+  #country-results {
+    font-size: 40px;
   }

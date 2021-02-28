@@ -6,12 +6,12 @@ fetch(url)
   }).then(function(json) {
     console.log(json);
     let results = "";
-    results += '<br> <h2>Coronavirus Worldwide' + "</h2>";
+    results += '<h1>Worldwide Statistics' + "</h1>";
 
-    results+= '<p> Total cases: ' + json.All.confirmed + '</p>';
-    results+= '<p> Total recovered: ' + json.All.recovered + '</p>';
-    results+= '<p> Total deaths: ' + json.All.deaths + '</p>';
-    results+= '<p> Up to date as of: ' + moment(json.All.updated).format('MMMM Do YYYY hh a') + '</p>';
+    results+= '<h5> Total cases: ' + json.All.confirmed + '</h5>';
+    results+= '<h5> Total recovered: ' + json.All.recovered + '</h5>';
+    results+= '<h5> Total deaths: ' + json.All.deaths + '</h5>';
+    results+= '<h5> Up to date as of: ' + moment(json.All.updated).format('MMMM Do, YYYY hh:mm a') + '</h5>';
 
     console.log(results);
     document.getElementById("world-info").innerHTML = results;
@@ -31,14 +31,15 @@ document.getElementById("covidSubmit").addEventListener("click", function(event)
     }).then(function(json) {
       console.log(json);
       let results = "";
-      results += '<br> <h2>Covid in ' + json.All.country + "</h2>";
-      results += '<p> Confirmed Cases: ' + json.All.confirmed + '</p>';
-      results += '<p> Total Recovered: ' + json.All.recovered + '</p>';
-      results += '<p> Confirmed Deaths: ' + json.All.deaths + '</p>';
+      results += '<hr>';
+      results += '<br> <h1>Covid-19 in ' + json.All.country + "</h1>";
+      results += '<h5> Confirmed Cases: ' + json.All.confirmed + '</h5>';
+      results += '<h5> Total Recovered: ' + json.All.recovered + '</h5>';
+      results += '<h5> Confirmed Deaths: ' + json.All.deaths + '</h5>';
 
       let perCapita = (json.All.confirmed / json.All.population) * 100000;
 
-      results += '<p> Cases per 100,000 people: ' + perCapita + '</p>';
+      results += '<h5> Cases per 100,000 people: ' + perCapita + '</h5>';
 
       results += "</span>";
 
@@ -56,26 +57,26 @@ document.getElementById("covidSubmit").addEventListener("click", function(event)
       console.log(json);
       let result = "";
 
-      result += '<h2> Total Cases by Date: </h2>';
+      result += '<br> <h2> Total Cases by Date: </h2>';
       let index = 0;
 
       let date = "2020-02-01";
 
       console.log(json.All.country);
 
-      result += '<p>Date: Feb. 1, 2020 ' + json.All.dates[[date]] + '</p>';
-      result += '<p>Date: Mar. 1, 2020 ' + json.All.dates["2020-03-01"] + '</p>';
-      result += '<p>Date: Apr. 1, 2020 ' + json.All.dates["2020-04-01"] + '</p>';
-      result += '<p>Date: May. 1, 2020 ' + json.All.dates["2020-05-01"] + '</p>';
-      result += '<p>Date: June. 1, 2020 ' + json.All.dates["2020-06-01"] + '</p>';
-      result += '<p>Date: July. 1, 2020 ' + json.All.dates["2020-07-01"] + '</p>';
-      result += '<p>Date: Aug. 1, 2020 ' + json.All.dates["2020-08-01"] + '</p>';
-      result += '<p>Date: Sep. 1, 2020 ' + json.All.dates["2020-09-01"] + '</p>';
-      result += '<p>Date: Oct. 1, 2020 ' + json.All.dates["2020-10-01"] + '</p>';
-      result += '<p>Date: Nov. 1, 2020 ' + json.All.dates["2020-11-01"] + '</p>';
-      result += '<p>Date: Dec. 1, 2020 ' + json.All.dates["2020-12-01"] + '</p>';
-      result += '<p>Date: Jan. 1, 2021 ' + json.All.dates["2021-01-01"] + '</p>';
-      result += '<p>Date: Feb. 1, 2021 ' + json.All.dates["2021-02-01"] + '</p>';
+      result += '<hr><pre><h5>Date: Feb. 1, 2020 \t Cases: ' + json.All.dates[[date]] + '</h5>';
+      result += '<hr><h5>Date: Mar. 1, 2020 \t Cases: ' + json.All.dates["2020-03-01"] + '</h5>';
+      result += '<hr><h5>Date: Apr. 1, 2020 \t Cases: ' + json.All.dates["2020-04-01"] + '</h5>';
+      result += '<hr><h5>Date: May. 1, 2020 \t Cases: ' + json.All.dates["2020-05-01"] + '</h5>';
+      result += '<hr><h5>Date: June. 1, 2020 \t Cases: ' + json.All.dates["2020-06-01"] + '</h5>';
+      result += '<hr><h5>Date: July. 1, 2020 \t Cases: ' + json.All.dates["2020-07-01"] + '</h5>';
+      result += '<hr><h5>Date: Aug. 1, 2020 \t Cases: ' + json.All.dates["2020-08-01"] + '</h5>';
+      result += '<hr><h5>Date: Sep. 1, 2020 \t Cases: ' + json.All.dates["2020-09-01"] + '</h5>';
+      result += '<hr><h5>Date: Oct. 1, 2020 \t Cases: ' + json.All.dates["2020-10-01"] + '</h5>';
+      result += '<hr><h5>Date: Nov. 1, 2020 \t Cases: ' + json.All.dates["2020-11-01"] + '</h5>';
+      result += '<hr><h5>Date: Dec. 1, 2020 \t Cases: ' + json.All.dates["2020-12-01"] + '</h5>';
+      result += '<hr><h5>Date: Jan. 1, 2021 \t Cases: ' + json.All.dates["2021-01-01"] + '</h5>';
+      result += '<hr><h5>Date: Feb. 1, 2021 \t Cases: ' + json.All.dates["2021-02-01"] + '</h5></pre><hr>';
 
       document.getElementById("Historical-Data").innerHTML = result;
     });
