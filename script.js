@@ -46,4 +46,38 @@ document.getElementById("covidSubmit").addEventListener("click", function(event)
       document.getElementById("countryResults").innerHTML = results;
     });
 
+    //historical data
+    const url2 = "https://covid-api.mmediagroup.fr/v1/history?country=" + value + "&status=confirmed";
+    fetch(url2)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+      console.log(json);
+      let result = "";
+
+      result += '<h2> Total Cases by Date: </h2>';
+      let index = 0;
+
+      let date = "2020-02-01";
+
+      console.log(json.All.country);
+
+      result += '<p>Date: Feb. 1, 2020 ' + json.All.dates[[date]] + '</p>';
+      result += '<p>Date: Mar. 1, 2020 ' + json.All.dates["2020-03-01"] + '</p>';
+      result += '<p>Date: Apr. 1, 2020 ' + json.All.dates["2020-04-01"] + '</p>';
+      result += '<p>Date: May. 1, 2020 ' + json.All.dates["2020-05-01"] + '</p>';
+      result += '<p>Date: June. 1, 2020 ' + json.All.dates["2020-06-01"] + '</p>';
+      result += '<p>Date: July. 1, 2020 ' + json.All.dates["2020-07-01"] + '</p>';
+      result += '<p>Date: Aug. 1, 2020 ' + json.All.dates["2020-08-01"] + '</p>';
+      result += '<p>Date: Sep. 1, 2020 ' + json.All.dates["2020-09-01"] + '</p>';
+      result += '<p>Date: Oct. 1, 2020 ' + json.All.dates["2020-10-01"] + '</p>';
+      result += '<p>Date: Nov. 1, 2020 ' + json.All.dates["2020-11-01"] + '</p>';
+      result += '<p>Date: Dec. 1, 2020 ' + json.All.dates["2020-12-01"] + '</p>';
+      result += '<p>Date: Jan. 1, 2021 ' + json.All.dates["2021-01-01"] + '</p>';
+      result += '<p>Date: Feb. 1, 2021 ' + json.All.dates["2021-02-01"] + '</p>';
+
+      document.getElementById("Historical-Data").innerHTML = result;
+    });
+
 });
