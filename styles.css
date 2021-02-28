@@ -68,6 +68,21 @@
     justify-content: center;
   }
 
+  .picture-usa { /*Used to create the picture at the top. It also changes the text color */
+    color: black;
+    grid-area: picture;
+    min-height: 400px;
+    width: 100%;
+    background: white url(us-flag.jpg);
+    background-size: cover;
+    background-position: bottom right;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+
 
 
   body {
@@ -89,7 +104,11 @@
   }
 
   #world-info {
-    padding: 10px;
+    padding: 30px;
+  }
+
+  #US-info {
+    padding: 30px;
   }
   .buffer {
     height: 100px;
